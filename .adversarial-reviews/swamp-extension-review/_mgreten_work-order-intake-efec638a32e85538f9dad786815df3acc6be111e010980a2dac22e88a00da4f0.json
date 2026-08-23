@@ -1,0 +1,82 @@
+{
+  "extension": "@mgreten/work-order-intake",
+  "version": "2026.08.23.1",
+  "reviewedAt": "2026-08-23T20:29:07Z",
+  "dimensions": [
+    {
+      "id": "credentials-secrets",
+      "verdict": "na",
+      "note": "No credentials or configuration."
+    },
+    {
+      "id": "logging-quality",
+      "verdict": "pass",
+      "note": "Both methods emit structured entry and successful-completion logs without proposal content."
+    },
+    {
+      "id": "error-handling",
+      "verdict": "pass",
+      "note": "Malformed input returns stable fail-closed diagnostics; collisions, missing resources, invalid persisted data, rejection, and subject mismatch throw before writes."
+    },
+    {
+      "id": "testing-completeness",
+      "verdict": "pass",
+      "note": "Tests cover acceptance, strict malformed input, subject/content tampering, active windows, path and size bounds, zero authority, idempotent replay, ID collisions, and subject-bound assertions."
+    },
+    {
+      "id": "idempotency-resilience",
+      "verdict": "pass",
+      "note": "Same ID and result reuses persisted state without writing; same ID with different content fails closed."
+    },
+    {
+      "id": "api-contracts",
+      "verdict": "na",
+      "note": "No external API calls."
+    },
+    {
+      "id": "resource-management",
+      "verdict": "na",
+      "note": "No external handles or temporary resources."
+    },
+    {
+      "id": "published-surface-hygiene",
+      "verdict": "pass",
+      "note": "Published examples and fixtures contain only synthetic identifiers and no infrastructure details."
+    },
+    {
+      "id": "schema-strictness",
+      "verdict": "pass",
+      "note": "All object contracts are strict; accepted and rejected union branches are discriminated and persisted writes are schema-parsed."
+    },
+    {
+      "id": "lifetime-gc",
+      "verdict": "pass",
+      "note": "The sole result resource declares infinite lifetime and explicit GC retention."
+    },
+    {
+      "id": "crud-completeness",
+      "verdict": "na",
+      "note": "Decision intake and assertion do not manage an external CRUD lifecycle."
+    },
+    {
+      "id": "preflight-checks",
+      "verdict": "na",
+      "note": "No external mutation or execution method exists."
+    },
+    {
+      "id": "instance-names",
+      "verdict": "pass",
+      "note": "The sole writer and reader use the same validated intake-<intakeId> identity; collisions cannot overwrite differing results."
+    },
+    {
+      "id": "data-access",
+      "verdict": "pass",
+      "note": "Both idempotency and assertion read through context.readResource and strictly validate persisted data."
+    },
+    {
+      "id": "version-upgrades",
+      "verdict": "na",
+      "note": "Initial unpublished version; registry dry-run reports no prior version."
+    }
+  ]
+}
