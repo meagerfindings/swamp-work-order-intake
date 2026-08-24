@@ -1,0 +1,82 @@
+{
+  "extension": "@mgreten/work-order-intake",
+  "version": "2026.08.23.1",
+  "reviewedAt": "2026-08-24T12:16:41Z",
+  "dimensions": [
+    {
+      "id": "credentials-secrets",
+      "verdict": "na",
+      "note": "No configuration, credentials, secrets, or sensitive outputs."
+    },
+    {
+      "id": "logging-quality",
+      "verdict": "pass",
+      "note": "Both intake branches and both assertion branches emit structured or content-free entry and successful-completion logs without sensitive proposal data."
+    },
+    {
+      "id": "error-handling",
+      "verdict": "pass",
+      "note": "Validation fails closed; collisions, unavailable or invalid records, denials, and subject mismatches throw before writes."
+    },
+    {
+      "id": "testing-completeness",
+      "verdict": "pass",
+      "note": "Fourteen focused tests cover generic and retained acceptance, strict branch separation, retained duplicate/reference/freshness/evidence/window/date semantics, logging, bounds, idempotency, collisions, authority, and assertion failures."
+    },
+    {
+      "id": "idempotency-resilience",
+      "verdict": "pass",
+      "note": "Canonical-equal replay reuses the retained result and differing same-ID content fails before mutation."
+    },
+    {
+      "id": "api-contracts",
+      "verdict": "na",
+      "note": "No external API calls, pagination, or rate limits."
+    },
+    {
+      "id": "resource-management",
+      "verdict": "na",
+      "note": "No network, file, subprocess, temporary, or external resource handles."
+    },
+    {
+      "id": "published-surface-hygiene",
+      "verdict": "pass",
+      "note": "README and tests use synthetic identifiers, paths, and timestamps with no private infrastructure or credentials."
+    },
+    {
+      "id": "schema-strictness",
+      "verdict": "pass",
+      "note": "Mechanical checks pass: the sole result write exactly conforms to its strict compatible union. Generic and retained proposal branches remain strict and separate; retained dossier/work-order bounds, duplicates, references, provenance freshness, evidence requirements, measurement windows, and dossier dates match the active authoritative contract."
+    },
+    {
+      "id": "lifetime-gc",
+      "verdict": "pass",
+      "note": "The sole durable decision resource declares infinite lifetime and explicit garbage collection retention."
+    },
+    {
+      "id": "crud-completeness",
+      "verdict": "na",
+      "note": "Append-once decision intake is not an external CRUD lifecycle; update/delete would undermine approval evidence."
+    },
+    {
+      "id": "preflight-checks",
+      "verdict": "na",
+      "note": "Methods grant no implementation authority and perform no external mutation."
+    },
+    {
+      "id": "instance-names",
+      "verdict": "pass",
+      "note": "Mechanical check passes: the sole writer uses result/intake-<SafeId>, the persisted assertion reads the same identity, and incompatible collisions are rejected."
+    },
+    {
+      "id": "data-access",
+      "verdict": "pass",
+      "note": "Persisted replay and generic assertion use context.readResource; retained result-only assertion preserves the authoritative active workflow contract."
+    },
+    {
+      "id": "version-upgrades",
+      "verdict": "na",
+      "note": "Registry reports no previously published version, so no published persisted-version migration target exists."
+    }
+  ]
+}
